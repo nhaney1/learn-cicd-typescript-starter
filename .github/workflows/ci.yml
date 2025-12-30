@@ -31,4 +31,4 @@ jobs:
         run: npm run format:check
 
       - name: Run Style
-        run: npm run format:style  
+        run: npm run format:writestyle  
