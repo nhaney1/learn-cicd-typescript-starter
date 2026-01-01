@@ -21,14 +21,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install code coverage report
-        run: npm i -D @vitest/coverage-v8
+      - name: Run unit tests
+        run: npm run test -- --coverage
 
-      - name: Run tests
-        run: npm run test --coverage
+  style:
+    name: Style
+    runs-on: ubuntu-latest
 
-      - name: Run Style
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
         run: npm run format:check
 
-      - name: Run Style
-        run: npm run format:writestyle  
+      - name: Check linting
+        run: npm run lint
