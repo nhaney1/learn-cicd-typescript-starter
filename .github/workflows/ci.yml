@@ -23,9 +23,9 @@ jobs:
 
       - name: Install code coverage report
         run: npm i -D @vitest/coverage-v8
-        
+
       - name: Run unit tests
-        run: npm run test -- --coverage
+        run: npm run test --coverage
 
   style:
     name: Style
